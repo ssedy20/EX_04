@@ -3,9 +3,9 @@
 using namespace std;
 
 class Rectangle
-{
+{ //declaring class 'Rectangle'//
 private:
-	double x, y;
+	double x, y; //declares x and y as doubles, as well as width and height//
 	double width, height;
 
 public:
@@ -63,25 +63,25 @@ void setHeight(double height)
 
 double getPerimeter() const
 {
-	return 2 * width + 2 * height;
+	return 2 * width + 2 * height; //will solve for perimeter//
 }
 
 double getArea() const
 {
-	return width * height;
+	return width * height; //will solve for area//
 }
 
 bool contains(double x, double y) const
 {
 	return (abs(x - this->x) <= width, height) && (abs(y - this->y) <= width, height);
 }
-bool contains(const Rectangle &rectangle) const
+bool contains(const Rectangle &rectangle) const //if rectangle is located within a rectangle//
 {
 	return contains(rectangle.x - rectangle.width + rectangle.height, rectangle.y) && contains(rectangle.x + rectangle.width + rectangle.height, rectangle.y)
 		&& contains(rectangle.x, rectangle.y - rectangle.width + rectangle.height) && contains(rectangle.x, rectangle.y + rectangle.width + rectangle.height);
 }
 
-bool overlaps(const Rectangle &rectangle) const
+bool overlaps(const Rectangle &rectangle) const //if rectangles overlap//
 {
 	return distance(x, y, rectangle.x, rectangle.y) <= width + rectangle.width;
 	return distance(x, y, rectangle.x, rectangle.y) <= height + rectangle.height;
@@ -96,7 +96,7 @@ static double distance(double x1, double y1, double x2, double y2)
 
 int main()
 {
-	Rectangle r1(2, 2, 5.5, 4.9);
+	Rectangle r1(2, 2, 5.5, 4.9); //setting up rectangle 1//
 	cout << "Area:" << r1.getArea() << endl;
 	cout << "Perimeter:" << r1.getPerimeter() << endl;
 
